@@ -1,1 +1,1 @@
-INSERT INTO tb_contact (name) VALUES ('Alisson Wilker')
+INSERT INTO tb_pessoafisica (cpf, nome) VALUES ('053', 'Alisson Wilker')

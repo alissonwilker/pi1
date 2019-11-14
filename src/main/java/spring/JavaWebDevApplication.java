@@ -1,13 +1,16 @@
-package br.edu.ifb.java_web_dev;
+package spring;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * Classe que inicia a aplicacao (main).
+ */
 @SpringBootApplication
-public class ContactsApplication {
+public class JavaWebDevApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ContactsApplication.class, args);
+		SpringApplication.run(JavaWebDevApplication.class, args);
 	}
 
 }

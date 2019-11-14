@@ -1,62 +1,63 @@
 <template>
-  <div>
-    <AddContact v-on:add-contact="addContact" />
-    <UpdateContact v-on:update-contact="updateContact" />
-    <Contacts
-      v-bind:contacts="contacts"
-      v-on:del-contact="deleteContact"
+  <div class="hello">
+    <AddPessoaFisica v-on:add-pessoafisica="addPessoaFisica" />
+    <UpdatePessoaFisica v-on:update-pessoafisica="updatePessoaFisica" />
+    <PessoasFisicas
+      v-bind:pessoasFisicas="pessoasFisicas"
+      v-on:del-pessoaFisica="deletePessoaFisica"
     />
   </div>
 </template>
 
 <script>
-import Contacts from "../components/Contacts";
-import AddContact from "../components/AddContact";
-import UpdateContact from "../components/UpdateContact";
+import PessoasFisicas from "../components/PessoasFisicas";
+import AddPessoaFisica from "../components/AddPessoaFisica";
+import UpdatePessoaFisica from "../components/UpdatePessoaFisica";
 import axios from "axios";
 
 export default {
   components: {
-    AddContact,
-    UpdateContact,
-    Contacts
+    AddPessoaFisica,
+    UpdatePessoaFisica,
+    PessoasFisicas
   },
   data() {
     return {
-      contacts: []
+      pessoasFisicas: []
     };
   },
   methods: {
-    deleteContact(id) {
+    deletePessoaFisica(id) {
       axios
-        .delete("http://localhost:8181/contacts/" + id)
+        .delete("http://localhost:8181/pessoasFisicas/" + id)
         .then(
-            (this.contacts = this.contacts.filter(
-              contact => contact.id !== id
+            (this.pessoasFisicas = this.pessoasFisicas.filter(
+              pessoaFisica => pessoaFisica.id !== id
             )) 
         )
         // eslint-disable-next-line no-console
         .catch(err => console.log(err));
     },
-    addContact(newContact) {
-      const { name } = newContact;
+    addPessoaFisica(newPessoaFisica) {
+      const { nome, cpf } = newPessoaFisica;
       axios
-        .post("http://localhost:8181/contacts/", {
-          name
+        .post("http://localhost:8181/pessoasFisicas/", {
+          nome,
+          cpf
         })
-        .then(res => (this.contacts = [...this.contacts, res.data]))
+        .then(res => (this.pessoasFisicas = [...this.pessoasFisicas, res.data]))
         // eslint-disable-next-line no-console
         .catch(err => console.log(err));
     },
-    updateContact(contact) {
-      const { id, name } = contact;
+    updatePessoaFisica(pessoaFisica) {
+      const { id, nome } = pessoaFisica;
       axios
-        .put("http://localhost:8181/contacts/" + id, {
+        .put("http://localhost:8181/pessoasFisicas/" + id, {
           id,
-          name
+          nome
         })
         .then(
-          (res => this.contacts[this.contacts.findIndex(c => c.id == res.data.id)].name = res.data.name)
+          (res => this.pessoasFisicas[this.pessoasFisicas.findIndex(pf => pf.id == res.data.id)].nome = res.data.nome)
         )
         // eslint-disable-next-line no-console
         .catch(err => console.log(err));
@@ -64,12 +65,13 @@ export default {
   },
   created() {
     axios
-      .get("http://localhost:8181/contacts/")
-      .then(res => (this.contacts = res.data))
+      .get("http://localhost:8181/pessoasFisicas/")
+      .then(res => (this.pessoasFisicas = res.data))
       // eslint-disable-next-line no-console
       .catch(err => console.log(err));
   }
 };
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
