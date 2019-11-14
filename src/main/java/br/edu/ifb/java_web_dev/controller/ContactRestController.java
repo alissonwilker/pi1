@@ -36,7 +36,7 @@ public class ContactRestController {
         return contactRepository.findById(id);
     }
 
-    @PostMapping(path = "/", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody Contact addContact(@RequestBody Contact contato) {
         return persistirContact(contato);
     }
