@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import ContactItem from './ContactItem';
+import ContactItem from './ContactItem.vue';
 
 export default {
     components: {

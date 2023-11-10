@@ -10,9 +10,9 @@
 </template>
 
 <script>
-import Contacts from "../components/Contacts";
-import AddContact from "../components/AddContact";
-import UpdateContact from "../components/UpdateContact";
+import Contacts from "./Contacts.vue";
+import AddContact from "./AddContact.vue";
+import UpdateContact from "./UpdateContact.vue";
 import axios from "axios";
 
 export default {
