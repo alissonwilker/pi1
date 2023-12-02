@@ -10,9 +10,9 @@
 </template>
 
 <script>
-import PessoasFisicas from "../components/PessoasFisicas";
-import AddPessoaFisica from "../components/AddPessoaFisica";
-import UpdatePessoaFisica from "../components/UpdatePessoaFisica";
+import PessoasFisicas from "./PessoasFisicas.vue";
+import AddPessoaFisica from "./AddPessoaFisica.vue";
+import UpdatePessoaFisica from "./UpdatePessoaFisica.vue";
 import axios from "axios";
 
 export default {

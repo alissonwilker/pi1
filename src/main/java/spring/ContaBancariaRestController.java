@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -37,7 +38,7 @@ public class ContaBancariaRestController {
      */
     @GetMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody List<ContaBancaria> getContasBancarias() {
-        return cbRepository.findAll();
+        return cbRepository.findAll(Sort.by("id"));
     }
 
     /**

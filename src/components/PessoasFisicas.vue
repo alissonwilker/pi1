@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import PessoaFisicaItem from './PessoaFisicaItem';
+import PessoaFisicaItem from './PessoaFisicaItem.vue';
 export default {
     name: "PessoasFisicas",
     components: {
